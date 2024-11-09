@@ -1,10 +1,28 @@
-import Login from "./Component/Login";
+import {
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router-dom";
+import { QueryClient, QueryClientProvider } from "react-query";
+import Login from "./components/Login";
+
+
+const queryClient = new QueryClient();
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Login />,
+  },
+  
+
+]);
 
 function App() {
   return (
-<>
-<Login/>
-</>
+    <>
+      <QueryClientProvider client={queryClient}>
+        <RouterProvider router={router} />
+      </QueryClientProvider>
+    </>
   );
 }
 
