@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { auth, provider } from "../firebase";
+import { toast } from "react-toastify";
 import {
   selectUserName,
   selectUserPhoto,
@@ -20,10 +21,10 @@ const Navbar = () => {
     auth.onAuthStateChanged(async (user) => {
       if (user) {
         setUser(user);
-        navigate("/home"); // Use navigate instead of history.push
+        navigate("/home");
       }
     });
-  }, [userName, navigate]); // Add navigate to the dependency arra
+  }, [userName, navigate]);
 
   const handleAuth = () => {
     if (!userName) {
@@ -31,6 +32,7 @@ const Navbar = () => {
         .signInWithPopup(provider)
         .then((result) => {
           setUser(result.user);
+          toast.success("Login Successful!");
         })
         .catch((error) => {
           alert(error.message);
@@ -40,7 +42,8 @@ const Navbar = () => {
         .signOut()
         .then(() => {
           dispatch(setSignOutState());
-          navigate("/"); // Use navigate instead of history.push
+          navigate("/");
+          toast.success("Sign out Successful!");
         })
         .catch((err) => alert(err.message));
     }
@@ -59,43 +62,51 @@ const Navbar = () => {
   return (
     <Nav>
       <Logo>
-        <img src="/images/logo.svg" alt="Disney+" />
+        <img src="/images/logo.svg" alt="Disney+ logo" />
       </Logo>
 
       {!userName ? (
-        <Login onClick={handleAuth}>Login</Login>
+        <Login onClick={handleAuth} aria-label="Login">
+          Login
+        </Login>
       ) : (
         <>
-          <NavMenu>
-            <a href="/home">
-              <img src="/images/home-icon.svg" alt="HOME" />
+          <NavMenu role="navigation">
+            <a href="/home" aria-label="Go to Home">
+              <img src="/images/home-icon.svg" alt="Home" />
               <span>HOME</span>
             </a>
-            <a>
-              <img src="/images/search-icon.svg" alt="SEARCH" />
+            <a href="#search" aria-label="Go to Search">
+              <img src="/images/search-icon.svg" alt="Search" />
               <span>SEARCH</span>
             </a>
-            <a>
-              <img src="/images/watchlist-icon.svg" alt="WATCHLIST" />
+            <a href="#watchlist" aria-label="Go to Watchlist">
+              <img src="/images/watchlist-icon.svg" alt="Watchlist" />
               <span>WATCHLIST</span>
             </a>
-            <a>
-              <img src="/images/original-icon.svg" alt="ORIGINALS" />
+            <a href="#originals" aria-label="Go to Originals">
+              <img src="/images/original-icon.svg" alt="Originals" />
               <span>ORIGINALS</span>
             </a>
-            <a>
-              <img src="/images/movie-icon.svg" alt="MOVIES" />
+            <a href="#movies" aria-label="Go to Movies">
+              <img src="/images/movie-icon.svg" alt="Movies" />
               <span>MOVIES</span>
             </a>
-            <a>
-              <img src="/images/series-icon.svg" alt="SERIES" />
+            <a href="#series" aria-label="Go to Series">
+              <img src="/images/series-icon.svg" alt="Series" />
               <span>SERIES</span>
             </a>
           </NavMenu>
           <SignOut>
-            <UserImg src={userPhoto} alt={userName} />
-            <DropDown>
-              <span onClick={handleAuth}>Sign out</span>
+            <UserImg
+              src={userPhoto}
+              alt={`${userName}'s profile`}
+              aria-label="User profile"
+            />
+            <DropDown aria-label="User menu" role="menu">
+              <span onClick={handleAuth} role="menuitem">
+                Sign out
+              </span>
             </DropDown>
           </SignOut>
         </>
@@ -192,10 +203,6 @@ const NavMenu = styled.div`
       }
     }
   }
-
-  /* @media (max-width: 768px) {
-    display: none;
-  } */
 `;
 
 const Login = styled.a`
@@ -216,6 +223,8 @@ const Login = styled.a`
 
 const UserImg = styled.img`
   height: 100%;
+  width: 48px;
+  border-radius: 50%;
 `;
 
 const DropDown = styled.div`
@@ -231,6 +240,7 @@ const DropDown = styled.div`
   letter-spacing: 3px;
   width: 100px;
   opacity: 0;
+  visibility: hidden;
 `;
 
 const SignOut = styled.div`
@@ -251,6 +261,7 @@ const SignOut = styled.div`
   &:hover {
     ${DropDown} {
       opacity: 1;
+      visibility: visible;
       transition-duration: 1s;
     }
   }
