@@ -7,6 +7,7 @@ import { Provider } from "react-redux";
 import store from "./app/store";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Home from './Components/Home';
 
 const queryClient = new QueryClient();
 const router = createBrowserRouter([
@@ -21,6 +22,10 @@ const router = createBrowserRouter([
       {
         path: "/nav",
         element: <Navbar />,
+      },
+      {
+        path: "/home",
+        element: <Home/>,
       },
     ],
   },
