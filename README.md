@@ -1,42 +1,66 @@
-# **Disney Clone Project**
+# Disney Clone Website Overview
 
-This is a **Disney Clone** web app built with **React** and **Vite**. It includes features such as **React Router**, **Redux** for state management, and **Firebase** integration for backend services. The project is hosted on **Vercel**.
+The **Disney Clone** website is a replica of the Disney+ streaming service, . This project showcases various popular features found in modern streaming platforms, such as user authentication, content discovery (trending, recommended, new releases), and engaging UI components like sliders.
 
-**Project Link**: [disney-clone-seven-topaz.vercel.app](https://disney-clone-seven-topaz.vercel.app/)
+---
 
-![Disney Clone](./public/images/Screenshot%20from%202024-11-10%2015-15-23.png)
+[LIVE DEMO](https://disney-clone-seven-topaz.vercel.app/)
 
-## **Features**
+---
 
-- **React**: A JavaScript library for building user interfaces.
-- **Vite**: A modern build tool for faster development.
-- **Redux**: Used for state management with **@reduxjs/toolkit**.
-- **Supabase**: For database and authentication services.
-- **Firebase**: For backend services (such as authentication, storage, etc.).
-- **React Router**: For navigating between pages.
-- **React Toastify**: For showing notifications.
-- **Slick Carousel**: For the slider functionality.
+![Disney Clone](./public/images/Screenshot%203.png)
+![Disney Clone](./public/images/Screenshot%204.png)
+## Key Features:
 
-## **Dependencies**
+- **Authentication**: User sign-up and login using **Firebase Authentication**.
+- **Content Discovery**: View trending movies, recommended films, and new releases.
+- **Sliders (Carousels)**: Display movies and shows in interactive carousels using **React-Slick**.
+- **Responsive Design**: Fully responsive layout for desktop, tablet, and mobile devices.
 
-This project uses the following dependencies:
+---
 
-- **React**: A JavaScript library for building UI components.
-- **@reduxjs/toolkit**: State management with Redux.
-- **@supabase/supabase-js**: Supabase JavaScript client for interacting with Supabase.
-- **firebase**: Firebase SDK for backend services like Authentication, Firestore, etc.
-- **jquery**: For handling DOM manipulations (if needed).
-- **react-router-dom**: For routing and page navigation in React.
-- **react-slick**: For creating carousels/slider components.
-- **react-toastify**: For showing toast notifications to users.
-- **styled-components**: For styling components.
+## Tech Stack:
 
-## **Development Setup**
+- **React**: For building the user interface.
+- **Firebase**: For authentication and data management.
+- **Vite**: For optimized performance.
+- **Redux**: For state management.
+- **React Router**: For page navigation.
+- **React-Slick**: For interactive carousels.
+---
 
-To get started with this project locally, follow these steps:
+## User Journey:
+
+1. **Login/Sign-up**: Users can log in or sign up for an account.
+2. **Browse Content**: Explore movies and shows in categories like **Trending**, **Recommended**, and **New Releases**.
+3. **Carousel Sliders**: Browse movies and shows using interactive sliders.
+
+---
+# PREREQUISITES:
+Sign up for a Firebase account [HERE](https://firebase.google.com/)
+Install Node JS in your computer [HERE](https://nodejs.org/en/)
+
+---
+# Getting Started
+
+To get started with the project, follow these steps:
 
 ### 1. Clone the repository:
 
 ```bash
-git clone https://github.com/your-username/disney-clone.git
+git clone git@github.com:toqasaad97/disney-clone-.git
+
+```
+###2. Change to the project directory:
+
+```bash
 cd disney-clone
+```
+###3. Install the necessary dependencies:
+
+```bash
+npm install
+```
+###4. Run the development server:
+```bash
+npm run dev
