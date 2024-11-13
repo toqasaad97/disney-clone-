@@ -17,9 +17,7 @@ const Detail = () => {
         }
       })
       .catch((error) => {
-        console.log( error);
-
-
+        console.log(error);
       });
   }, [id]);
 
@@ -32,6 +30,7 @@ const Detail = () => {
       <ImageTitle>
         <img alt={detailData.title} src={detailData.titleImg} />
       </ImageTitle>
+
       <ContentMeta>
         <Controls>
           <Player>
@@ -61,7 +60,7 @@ const Detail = () => {
 
 const Container = styled.div`
   position: relative;
-  min-height: calc(100vh-250px);
+  min-height: calc(100vh - 250px);
   overflow-x: hidden;
   display: block;
   top: 72px;
@@ -77,11 +76,13 @@ const Background = styled.div`
   z-index: -1;
 
   img {
-    width: 100vw;
-    height: 100vh;
+    width: 100vw; /* Ensure the image takes full width */
+    height: 100vh; /* Ensure the image takes full height */
+    object-fit: cover; /* This will ensure the image covers the container without distortion */
 
     @media (max-width: 768px) {
-      width: initial;
+      height: 50vh; /* Reduce the height on smaller screens */
+      object-fit: contain; /* Ensure it fits within the available space */
     }
   }
 `;
@@ -89,7 +90,6 @@ const Background = styled.div`
 const ImageTitle = styled.div`
   align-items: flex-end;
   display: flex;
-  -webkit-box-pack: start;
   justify-content: flex-start;
   margin: 0px auto;
   height: 30vw;
@@ -98,9 +98,17 @@ const ImageTitle = styled.div`
   width: 100%;
 
   img {
-    max-width: 600px;
+    width: 35vw; /* Adjust to percentage-based width */
+    max-width: 600px; /* Prevent it from growing too large */
     min-width: 200px;
-    width: 35vw;
+    height: auto; /* Let height adjust based on width */
+  }
+
+  @media (max-width: 768px) {
+    height: 40vw; /* Adjust for smaller screens */
+    img {
+      width: 70vw; /* Make the image take up 70% of the screen width */
+    }
   }
 `;
 
@@ -129,7 +137,7 @@ const Player = styled.button`
   letter-spacing: 1.8px;
   text-align: center;
   text-transform: uppercase;
-  background: rgb (249, 249, 249);
+  background: rgb(249, 249, 249);
   border: none;
   color: rgb(0, 0, 0);
 
