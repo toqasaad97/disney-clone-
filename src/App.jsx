@@ -8,6 +8,7 @@ import store from "./app/store";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Home from './Components/Home';
+import Detail from './Components/Detail';
 
 const queryClient = new QueryClient();
 const router = createBrowserRouter([
@@ -27,7 +28,10 @@ const router = createBrowserRouter([
         path: "/home",
         element: <Home/>,
       },
-    ],
+      {
+        path:"/detail/:id" ,
+        element: <Detail/>}
+    ]
   },
 ]);
 
