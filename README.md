@@ -1,14 +1,23 @@
-# Disney Clone Project
+# **Disney Clone Project**
 
 This is a **Disney Clone** web app built with **React** and **Vite**. It includes features such as **React Router**, **Redux** for state management, and **Firebase** integration for backend services. The project is hosted on **Vercel**.
 
 **Project Link**: [disney-clone-seven-topaz.vercel.app](https://disney-clone-seven-topaz.vercel.app/)
 
-[](./public/images/Screenshot%20from%202024-11-10%2015-15-23.png)
+![Disney Clone](./public/images/Screenshot%20from%202024-11-10%2015-15-23.png)
 
+## **Features**
 
+- **React**: A JavaScript library for building user interfaces.
+- **Vite**: A modern build tool for faster development.
+- **Redux**: Used for state management with **@reduxjs/toolkit**.
+- **Supabase**: For database and authentication services.
+- **Firebase**: For backend services (such as authentication, storage, etc.).
+- **React Router**: For navigating between pages.
+- **React Toastify**: For showing notifications.
+- **Slick Carousel**: For the slider functionality.
 
-## Dependencies
+## **Dependencies**
 
 This project uses the following dependencies:
 
@@ -22,7 +31,7 @@ This project uses the following dependencies:
 - **react-toastify**: For showing toast notifications to users.
 - **styled-components**: For styling components.
 
-## Development Setup
+## **Development Setup**
 
 To get started with this project locally, follow these steps:
 
