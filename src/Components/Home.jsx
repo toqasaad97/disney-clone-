@@ -1,4 +1,6 @@
 import styled from "styled-components";
+import ImgSlider from './ImgSlider';
+
 
 
 
@@ -7,7 +9,8 @@ const Home = () => {
 
   return (
     <Container>
-      
+      <ImgSlider/>
+
 
     </Container>
   );
@@ -19,7 +22,7 @@ const Container = styled.main`
   overflow-x: hidden;
   display: block;
   top: 72px;
-  padding: 0 calc(3.5vw + 5px);
+  margin: 0px 24px;
 
   &:after {
     background: url("/images/home-background.png") center center / cover
