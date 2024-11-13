@@ -4,16 +4,9 @@ This is a **Disney Clone** web app built with **React** and **Vite**. It include
 
 **Project Link**: [disney-clone-seven-topaz.vercel.app](https://disney-clone-seven-topaz.vercel.app/)
 
-## Features
+[](./public/images/Screenshot%20from%202024-11-10%2015-15-23.png)
 
-- **React**: A JavaScript library for building user interfaces.
-- **Vite**: A modern build tool for faster development.
-- **Redux**: Used for state management with **@reduxjs/toolkit**.
-- **Supabase**: For database and authentication services.
-- **Firebase**: For backend services (such as authentication, storage, etc.).
-- **React Router**: For navigating between pages.
-- **React Toastify**: For showing notifications.
-- **Slick Carousel**: For the slider functionality.
+
 
 ## Dependencies
 
