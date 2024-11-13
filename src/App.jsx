@@ -1,16 +1,20 @@
+import React, { Suspense } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "react-query";
-import Login from "./Components/Login";
-import Navbar from "./Components/Navbar";
-import Layout from "./Components/Layout";
 import { Provider } from "react-redux";
 import store from "./app/store";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import Home from './Components/Home';
-import Detail from './Components/Detail';
+
+const Login = React.lazy(() => import("./Components/Login"));
+const Navbar = React.lazy(() => import("./Components/Navbar"));
+const Layout = React.lazy(() => import("./Components/Layout"));
+const Home = React.lazy(() => import("./Components/Home"));
+const Detail = React.lazy(() => import("./Components/Detail"));
+const Loader = React.lazy(() => import("./Components/Loader"));
 
 const queryClient = new QueryClient();
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -26,12 +30,13 @@ const router = createBrowserRouter([
       },
       {
         path: "/home",
-        element: <Home/>,
+        element: <Home />,
       },
       {
-        path:"/detail/:id" ,
-        element: <Detail/>}
-    ]
+        path: "/detail/:id",
+        element: <Detail />,
+      },
+    ],
   },
 ]);
 
@@ -50,7 +55,10 @@ function App() {
           draggable
           pauseOnHover
         />
-        <RouterProvider router={router} />
+
+        <Suspense fallback={<Loader />}>
+          <RouterProvider router={router} />
+        </Suspense>
       </QueryClientProvider>
     </Provider>
   );

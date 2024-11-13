@@ -41,7 +41,6 @@ const Home = () => {
         { recommend: [], newDisney: [], original: [], trending: [] }
       );
 
-
       dispatch(setMovies(movies));
     });
   }, [userName, dispatch]);
