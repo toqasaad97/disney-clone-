@@ -8,7 +8,6 @@ import {
   setUserLoginDetails,
   setSignOutState,
 } from "../features/user/userSlice";
-import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const Navbar = () => {
@@ -65,7 +64,7 @@ const Navbar = () => {
   };
 
   const handleMenuClose = () => {
-    setIsMenuOpen(false); 
+    setIsMenuOpen(false);
   };
 
   return (
@@ -82,24 +81,28 @@ const Navbar = () => {
 
       <Menu isOpen={isMenuOpen}>
         <MenuItem>
-          <Link to="/home" onClick={handleMenuClose}>
-            Home
-          </Link>
+          <div onClick={handleMenuClose}>
+            <img src="/images/home-icon.svg" alt="HOME" />
+            <span>HOME</span>
+          </div>
         </MenuItem>
         <MenuItem>
-          <Link to="/about" onClick={handleMenuClose}>
-            About
-          </Link>
+          <div onClick={handleMenuClose}>
+            <img src="/images/movie-icon.svg" alt="MOVIES" />
+            <span>MOVIES</span>
+          </div>
         </MenuItem>
         <MenuItem>
-          <Link to="/contact" onClick={handleMenuClose}>
-            Contact
-          </Link>
+          <div onClick={handleMenuClose}>
+            <img src="/images/watchlist-icon.svg" alt="WATCHLIST" />
+            <span>WATCHLIST</span>
+          </div>
         </MenuItem>
         <MenuItem>
-          <Link to="/profile" onClick={handleMenuClose}>
-            Profile
-          </Link>
+          <div onClick={handleMenuClose}>
+            <img src="/images/original-icon.svg" alt="ORIGINALS" />
+            <span>ORIGINALS</span>
+          </div>
         </MenuItem>
         <MenuItem onClick={handleAuth}>
           {userName ? "Sign Out" : "Sign In"}
@@ -108,16 +111,20 @@ const Navbar = () => {
 
       <DesktopMenu>
         <MenuItem>
-          <Link to="/home">Home</Link>
+          <img src="/images/home-icon.svg" alt="HOME" />
+          <span>HOME</span>
         </MenuItem>
         <MenuItem>
-          <Link to="/about">About</Link>
+          <img src="/images/movie-icon.svg" alt="MOVIES" />
+          <span>MOVIES</span>
         </MenuItem>
         <MenuItem>
-          <Link to="/contact">Contact</Link>
+          <img src="/images/watchlist-icon.svg" alt="WATCHLIST" />
+          <span>WATCHLIST</span>
         </MenuItem>
         <MenuItem>
-          <Link to="/profile">Profile</Link>
+          <img src="/images/original-icon.svg" alt="ORIGINALS" />
+          <span>ORIGINALS</span>
         </MenuItem>
         <MenuItem onClick={handleAuth}>
           {userName ? "Sign Out" : "Sign In"}
@@ -201,6 +208,12 @@ const MenuItem = styled.li`
 
   &:hover {
     background-color: #333;
+  }
+
+  & img {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
   }
 
   & a {
